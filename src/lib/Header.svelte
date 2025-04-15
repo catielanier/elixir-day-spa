@@ -1,4 +1,4 @@
-<header>
+<header id="top">
   <div>
     <h1>Elixir Day Spa</h1>
     <h3>Where beauty is an art</h3>
