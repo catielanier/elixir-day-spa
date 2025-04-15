@@ -2,11 +2,12 @@
   import svelteLogo from "./assets/svelte.svg";
   import viteLogo from "/vite.svg";
   import Counter from "./lib/Counter.svelte";
+  import Navbar from "./lib/Navbar.svelte";
   import Header from "./lib/Header.svelte";
 </script>
 
+<Navbar />
 <Header />
-
 <main>
   <div>
     <a href="https://vite.dev" target="_blank" rel="noreferrer">

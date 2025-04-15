@@ -1,59 +1,46 @@
-<div class="header">
-  <nav>
-    <ul>
-      <a href="#top"><li>Home</li></a>
-      <a href="#about"><li>About</li></a>
-      <a href="#services"><li>Services</li></a>
-      <a href="#contact"><li>Contact</li></a>
-    </ul>
-  </nav>
-</div>
+<header>
+  <div>
+    <h1>Elixir Day Spa</h1>
+    <h3>Where beauty is an art</h3>
+  </div>
+</header>
 
 <style>
-  nav {
-    display: block;
-    position: fixed;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #fff;
-    border-radius: 10px;
-    border: 1px solid #ffff00;
-    padding: 10px 20px;
-    color: #000;
-    width: 540px;
-    font-family: "Playfair Display", serif;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    justify-content: space-around;
-  }
-
-  nav ul a {
-    display: inline-block;
-    position: relative;
-    color: #000;
-  }
-
-  nav ul a::after {
-    content: "";
-    position: absolute;
+  header {
+    max-width: 1920px;
     width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #ffff00;
-    transition: transform 0.25s ease-out;
+    height: 100vh;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)
+      ),
+      url("../assets/hero.jpg") no-repeat center center fixed;
+    background-size: cover;
   }
 
-  nav ul a:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom center;
+  header div {
+    position: absolute;
+    bottom: 5%;
+    left: 15%;
+  }
+
+  header div h1 {
+    font-family: "Rouge Script", cursive;
+    font-size: 6rem;
+    color: #ff0;
+    margin: 0;
+    text-align: left;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  header div h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    color: #525252;
+    margin: 0;
+    text-align: right;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   }
 </style>
