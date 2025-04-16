@@ -18,6 +18,8 @@
 
 <style>
   footer {
+    max-width: 1280px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
