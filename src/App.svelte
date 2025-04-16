@@ -2,12 +2,14 @@
   import Navbar from "./lib/Navbar.svelte";
   import Header from "./lib/Header.svelte";
   import About from "./lib/About.svelte";
+  import Services from "./lib/Services.svelte";
 </script>
 
 <Navbar />
 <Header />
 <main>
   <About />
+  <Services />
 </main>
 
 <style>
