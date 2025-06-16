@@ -1,8 +1,8 @@
 <script>
-  import { onMount } from "svelte";
   import { get, getDatabase, ref } from "firebase/database";
-  import { firebase } from "../utils/firebase";
+  import { onMount } from "svelte";
   import { writable } from "svelte/store";
+  import { firebase } from "../utils/firebase";
 
   const pricing = writable([]);
 
