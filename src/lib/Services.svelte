@@ -33,6 +33,28 @@
             </div>
           {/each}
         </div>
+      {:else}
+        {#each service.subservices as subservice}
+          <div class="subservice">
+            <h6>
+              {subservice.name} -
+              <span class="price">
+                ${subservice.price}
+              </span>
+              {subservice.duration && `(${subservice.duration})`}
+            </h6>
+            <p>{subservice.description}</p>
+            {#if subservice.options}
+              <ul>
+                {#each subservice.options as option}
+                  <li>
+                    <span class="option-name">{option.name}</span> - +${option.price}
+                  </li>
+                {/each}
+              </ul>
+            {/if}
+          </div>
+        {/each}
       {/if}
     {/each}
   </section>
@@ -46,14 +68,34 @@
   }
   h4 {
     font-family: "Rouge Script", cursive;
-    font-size: 1.8rem;
+    font-size: 2rem;
+    margin-bottom: 0.1rem;
   }
   h5 {
     font-family: "Playfair Display", serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.9rem;
   }
-  ul {
+  h6 {
+    font-family: "Playfair Display", serif;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.9rem;
+  }
+
+  h6 .price {
     font-family: "Karla", sans-serif;
+  }
+
+  ul,
+  p {
+    font-family: "Karla", sans-serif;
+  }
+
+  p {
+    margin-top: 0.3rem;
+    margin-bottom: 0.2rem;
   }
 
   .subcategory-grid {
@@ -65,5 +107,10 @@
   ul {
     list-style: none;
     padding: 0;
+  }
+
+  .subservice ul {
+    padding-left: 20px;
+    font-weight: bold;
   }
 </style>
