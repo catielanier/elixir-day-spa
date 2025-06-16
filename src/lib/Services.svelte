@@ -34,6 +34,9 @@
           {/each}
         </div>
       {:else}
+        {#if service.description}
+          <p>{service.description}</p>
+        {/if}
         {#each service.subservices as subservice}
           <div class="subservice">
             <h6>
@@ -43,7 +46,9 @@
               </span>
               {subservice.duration && `(${subservice.duration})`}
             </h6>
-            <p>{subservice.description}</p>
+            {#if subservice.description}
+              <p>{subservice.description}</p>
+            {/if}
             {#if subservice.options}
               <ul>
                 {#each subservice.options as option}
