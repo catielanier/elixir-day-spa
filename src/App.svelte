@@ -1,16 +1,31 @@
 <script>
-  import Navbar from "./lib/Navbar.svelte";
-  import Header from "./lib/Header.svelte";
   import About from "./lib/About.svelte";
-  import Services from "./lib/Services.svelte";
   import Footer from "./lib/Footer.svelte";
+  import Header from "./lib/Header.svelte";
+  import Navbar from "./lib/Navbar.svelte";
+  import Services from "./lib/Services.svelte";
+
+  import { get, getDatabase, ref } from "firebase/database";
+  import { onMount } from "svelte";
+  import { writable } from "svelte/store";
+  import { firebase } from "./utils/firebase";
+
+  const pricing = writable([]);
+
+  onMount(() => {
+    const database = getDatabase(firebase);
+    const reference = ref(database, "/pricing");
+    get(reference).then((snapshot) => {
+      pricing.set(snapshot.val());
+    });
+  });
 </script>
 
-<Navbar />
+<Navbar {pricing} />
 <Header />
 <main>
   <About />
-  <Services />
+  <Services {pricing} />
 </main>
 <Footer />
 

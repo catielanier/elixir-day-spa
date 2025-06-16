@@ -1,25 +1,14 @@
 <script>
-  import { get, getDatabase, ref } from "firebase/database";
-  import { onMount } from "svelte";
-  import { writable } from "svelte/store";
-  import { firebase } from "../utils/firebase";
-
-  const pricing = writable([]);
-
-  onMount(() => {
-    const database = getDatabase(firebase);
-    const reference = ref(database, "/pricing");
-    get(reference).then((snapshot) => {
-      pricing.set(snapshot.val());
-    });
-  });
+  export let pricing;
 </script>
 
 {#if $pricing.length}
   <section id="services">
     <h2>Services</h2>
     {#each $pricing as service}
-      <h4>{service.category}</h4>
+      <h4 id={service.category.toLowerCase().replace(" ", "-")}>
+        {service.category}
+      </h4>
       {#if service.subcategories}
         <div class="subcategory-grid">
           {#each service.subcategories as subcategory}
