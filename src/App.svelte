@@ -23,7 +23,7 @@
   });
 </script>
 
-<Navbar {pricing} />
+<Navbar pricing={$pricing} />
 <Header />
 <main>
   <About />

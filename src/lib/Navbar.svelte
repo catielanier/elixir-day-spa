@@ -1,13 +1,11 @@
 <script>
-  import { onMount } from "svelte";
-
   export let pricing;
 
   let subMenu = [];
 
   const generateSubMenu = () => {
     const arr = [];
-    $pricing.forEach((service) => {
+    pricing.forEach((service) => {
       const obj = {
         category: service.category,
         id: service.category.toLowerCase().replace(" ", "-"),
@@ -17,9 +15,7 @@
     return arr;
   };
 
-  onMount(() => {
-    subMenu = generateSubMenu();
-  });
+  $: subMenu = generateSubMenu();
 </script>
 
 <div class="header">
