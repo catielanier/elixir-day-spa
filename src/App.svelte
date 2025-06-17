@@ -1,5 +1,6 @@
 <script>
   import About from "./lib/About.svelte";
+  import Contact from "./lib/Contact.svelte";
   import Footer from "./lib/Footer.svelte";
   import Header from "./lib/Header.svelte";
   import Navbar from "./lib/Navbar.svelte";
@@ -26,6 +27,7 @@
 <main>
   <About />
   <Services {pricing} />
+  <Contact />
 </main>
 <Footer />
 
