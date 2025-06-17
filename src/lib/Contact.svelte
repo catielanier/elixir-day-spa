@@ -1,3 +1,27 @@
+<script>
+  import axios from "axios";
+  let [contactName, email, phone, message] = Array(4).fill("");
+  let success = false;
+
+  const sendMessage = () => {
+    axios
+      .post(
+        "https://formcarry.com/s/pZ2B97h0FXh",
+        { contactName, email, phone, message },
+        { headers: { Accept: "application/json" } }
+      )
+      .then((_) => {
+        success = true;
+        setTimeout(() => {
+          success = false;
+        }, 5000);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+</script>
+
 <section id="about">
   <h2>Contact Us</h2>
   <p>
@@ -14,6 +38,51 @@
     Prefer to email instead? Just fill out the contact form, and I'll get back
     to you personally as soon as I can.
   </p>
+  <div>
+    <form on:submit|preventDefault={sendMessage}>
+      {#if success}
+        Your email was successfully sent!
+      {/if}
+      <div>
+        <input
+          type="text"
+          name="name"
+          bind:value={contactName}
+          required
+          placeholder="Your name"
+        />
+      </div>
+      <div>
+        <input
+          type="email"
+          name="email"
+          bind:value={email}
+          required
+          placeholder="Email address"
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          name="phone"
+          bind:value={phone}
+          required
+          placeholder="Phone number"
+        />
+      </div>
+      <div>
+        <textarea
+          placeholder="Your message"
+          name="message"
+          bind:value={message}
+          required
+          cols="30"
+          rows="10"
+        />
+      </div>
+      <div><button type="submit">Send email</button></div>
+    </form>
+  </div>
 </section>
 
 <style>
