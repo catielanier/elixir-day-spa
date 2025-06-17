@@ -80,7 +80,9 @@
           rows="10"
         />
       </div>
-      <div><button type="submit">Send email</button></div>
+      <div>
+        <button type="submit"><span class="highlight">Send email</span></button>
+      </div>
     </form>
   </div>
 </section>
@@ -123,5 +125,51 @@
   }
   p {
     font-family: "Karla", sans-serif;
+  }
+  form {
+    max-width: 540px;
+    width: 100%;
+  }
+  input,
+  textarea {
+    width: 100%;
+    font-family: "Karla", sans-serif;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border: 0;
+    border-bottom: 3px solid #ff0;
+    margin-bottom: 15px;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    font-family: "Playfair Display", serif;
+    font-size: 1rem;
+  }
+  input:focus,
+  textarea:focus {
+    border-color: #e00;
+  }
+  button {
+    color: #e00;
+    border: 0;
+    font-family: "Playfair Display", serif;
+    font-size: 1.1rem;
+    background: none;
+    margin-bottom: 25px;
+  }
+  button .highlight {
+    display: inline-block;
+    position: absolute;
+  }
+  button .highlight::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0.15em;
+    width: 100%;
+    height: 0.5em;
+    background: #ff0;
+    transform: skew(-10deg);
+    z-index: -1;
   }
 </style>
