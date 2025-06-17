@@ -1,21 +1,22 @@
 <script>
-  export let pricing;
-
-  let subMenu = [];
-
-  const generateSubMenu = () => {
-    const arr = [];
-    pricing.forEach((service) => {
-      const obj = {
-        category: service.category,
-        id: service.category.toLowerCase().replace(" ", "-"),
-      };
-      arr.push(obj);
-    });
-    return arr;
-  };
-
-  $: subMenu = generateSubMenu();
+  const subMenu = [
+    {
+      id: "hair-removal",
+      category: "Hair Removal",
+    },
+    {
+      id: "nails",
+      category: "Nails",
+    },
+    {
+      id: "skincare",
+      category: "Skincare",
+    },
+    {
+      id: "body",
+      category: "Body",
+    },
+  ];
 </script>
 
 <div class="header">

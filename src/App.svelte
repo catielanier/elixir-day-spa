@@ -4,12 +4,12 @@
   import Footer from "./lib/Footer.svelte";
   import Header from "./lib/Header.svelte";
   import Navbar from "./lib/Navbar.svelte";
+  import Separator from "./lib/Separator.svelte";
   import Services from "./lib/Services.svelte";
 
   import { get, getDatabase, ref } from "firebase/database";
   import { onMount } from "svelte";
   import { writable } from "svelte/store";
-  import Separator from "./lib/Separator.svelte";
   import { firebase } from "./utils/firebase";
 
   const pricing = writable([]);
@@ -23,7 +23,7 @@
   });
 </script>
 
-<Navbar pricing={$pricing} />
+<Navbar />
 <Header />
 <main>
   <About />
