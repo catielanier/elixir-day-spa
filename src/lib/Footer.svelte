@@ -26,24 +26,48 @@
     background: #525252;
     color: #ff0;
   }
-  footer .container {
+
+  .container {
     max-width: 1280px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
-    padding: 1rem;
+    gap: 1rem;
+    padding: 1rem 2rem;
   }
 
   a {
     color: #fff;
   }
 
-  footer div:first-child {
+  /* left + right alignment on desktop */
+  .container > div:first-child {
     text-align: left;
   }
-
-  footer div:last-child {
+  .container > div:last-child {
     text-align: right;
+  }
+
+  /* ─── Tablet (≤768px): single column, centered ─────────────────────── */
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: 1rem 1.5rem;
+    }
+    .container > div {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  /* ─── Phone (≤480px): smaller text & tighter padding ───────────────── */
+  @media (max-width: 480px) {
+    footer {
+      font-size: 1rem;
+    }
+    .container {
+      padding: 0.75rem 1rem;
+      gap: 0.5rem;
+    }
   }
 </style>

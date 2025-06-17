@@ -22,6 +22,11 @@
   };
 </script>
 
+<svelte:head>
+  <!-- ensure media-queries actually hit at device width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</svelte:head>
+
 <section id="about">
   <h2>Contact Us</h2>
   <p>
@@ -38,10 +43,10 @@
     Prefer to email instead? Just fill out the contact form, and I'll get back
     to you personally as soon as I can.
   </p>
-  <div>
+  <div class="form-wrapper">
     <form on:submit|preventDefault={sendMessage}>
       {#if success}
-        Your email was successfully sent!
+        <p class="success">Your email was successfully sent!</p>
       {/if}
       <div>
         <input
@@ -76,11 +81,9 @@
           name="message"
           bind:value={message}
           required
-          cols="30"
-          rows="10"
         />
       </div>
-      <div>
+      <div class="btn-wrap">
         <button type="submit"><span class="highlight">Send email</span></button>
       </div>
     </form>
@@ -88,6 +91,26 @@
 </section>
 
 <style>
+  /* ─── global reset & box-sizing ───────────────────────────────────────── */
+  :global(html, body) {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+  :global(*),
+  :global(*::before),
+  :global(*::after) {
+    box-sizing: inherit;
+  }
+
+  /* ─── section layout ──────────────────────────────────────────────────── */
+  #about {
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
   h2 {
     font-size: 2rem;
     font-family: "Playfair Display", serif;
@@ -107,6 +130,13 @@
     transform: skew(-10deg);
     z-index: -1;
   }
+
+  p {
+    font-family: "Karla", sans-serif;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
   a {
     position: relative;
     display: inline-block;
@@ -123,13 +153,19 @@
     transform: skew(-10deg);
     z-index: -1;
   }
-  p {
-    font-family: "Karla", sans-serif;
+
+  .form-wrapper {
+    margin-top: 2rem;
   }
   form {
     max-width: 540px;
     width: 100%;
   }
+  .success {
+    color: green;
+    margin-bottom: 1rem;
+  }
+
   input,
   textarea {
     width: 100%;
@@ -138,7 +174,11 @@
     padding: 10px 15px;
     border: 0;
     border-bottom: 3px solid #ff0;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
+    resize: vertical;
+  }
+  textarea {
+    min-height: 150px;
   }
   input::placeholder,
   textarea::placeholder {
@@ -147,7 +187,12 @@
   }
   input:focus,
   textarea:focus {
+    outline: none;
     border-color: #e00;
+  }
+
+  .btn-wrap {
+    position: relative;
   }
   button {
     color: #e00;
@@ -155,11 +200,12 @@
     font-family: "Playfair Display", serif;
     font-size: 1.1rem;
     background: none;
-    margin-bottom: 25px;
+    cursor: pointer;
+    position: relative;
+    padding: 0.5rem 1rem;
   }
   button .highlight {
-    display: inline-block;
-    position: absolute;
+    position: relative;
   }
   button .highlight::before {
     content: "";
@@ -171,5 +217,53 @@
     background: #ff0;
     transform: skew(-10deg);
     z-index: -1;
+  }
+
+  /* ─── tablet breakpoint ───────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    #about {
+      padding: 3rem 1.5rem;
+    }
+    h2 {
+      font-size: 1.75rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+    input,
+    textarea {
+      font-size: 1rem;
+      padding: 8px 12px;
+    }
+    button {
+      font-size: 1rem;
+      padding: 0.5rem 0.75rem;
+    }
+  }
+
+  /* ─── phone breakpoint ─────────────────────────────────────────────────── */
+  @media (max-width: 480px) {
+    #about {
+      padding: 2rem 1rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 0.9rem;
+    }
+    input,
+    textarea {
+      font-size: 0.9rem;
+      padding: 6px 10px;
+    }
+    textarea {
+      min-height: 120px;
+    }
+    button {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
   }
 </style>
