@@ -121,7 +121,7 @@
   .has-submenu .submenu {
     display: none;
     position: absolute;
-    top: 100%; /* just below “Services” */
+    top: 100%;
     left: 0;
     background: #fff;
     list-style: none;
@@ -144,5 +144,11 @@
 
   .has-submenu .submenu li a:hover {
     background: #f4f4f4;
+  }
+
+  @media (max-width: 768px) {
+    .header {
+      display: none;
+    }
   }
 </style>

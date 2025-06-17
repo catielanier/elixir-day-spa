@@ -10,6 +10,7 @@
   import { get, getDatabase, ref } from "firebase/database";
   import { onMount } from "svelte";
   import { writable } from "svelte/store";
+  import MobileNav from "./lib/MobileNav.svelte";
   import { firebase } from "./utils/firebase";
 
   const pricing = writable([]);
@@ -24,6 +25,7 @@
 </script>
 
 <Navbar />
+<MobileNav />
 <Header />
 <main>
   <About />
