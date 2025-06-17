@@ -26,6 +26,20 @@
     font-size: 2rem;
     font-family: "Playfair Display", serif;
     margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+  }
+  h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0.15em;
+    width: 100%;
+    height: 0.5em;
+    background: #ff0;
+    transform: skew(-10deg);
+    z-index: -1;
   }
   p {
     font-family: "Karla", sans-serif;

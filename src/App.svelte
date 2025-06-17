@@ -9,6 +9,7 @@
   import { get, getDatabase, ref } from "firebase/database";
   import { onMount } from "svelte";
   import { writable } from "svelte/store";
+  import Separator from "./lib/Separator.svelte";
   import { firebase } from "./utils/firebase";
 
   const pricing = writable([]);
@@ -26,7 +27,9 @@
 <Header />
 <main>
   <About />
+  <Separator />
   <Services {pricing} />
+  <Separator />
   <Contact />
 </main>
 <Footer />
