@@ -27,7 +27,6 @@
     <ul>
       <li><a href="#top">Home</a></li>
       <li><a href="#about">About</a></li>
-
       <li class="has-submenu">
         <a href="#services">Services</a>
         <ul class="submenu">
@@ -38,7 +37,6 @@
           {/each}
         </ul>
       </li>
-
       <!-- <li><a href="#gallery">Gallery</a></li> -->
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -122,8 +120,6 @@
     transform: scaleX(1);
     transform-origin: bottom center;
   }
-
-  /* Submenu styles */
 
   .has-submenu .submenu {
     display: none;

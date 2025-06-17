@@ -16,7 +16,7 @@
               <h5>{subcategory.name}</h5>
               <ul>
                 {#each subcategory.services as service}
-                  <li>{service.name} - ${service.price}</li>
+                  <li>{service.name}: ${service.price}</li>
                 {/each}
               </ul>
             </div>
@@ -29,7 +29,7 @@
         {#each service.subservices as subservice}
           <div class="subservice">
             <h6>
-              {subservice.name} -
+              {subservice.name}:
               <span class="price">
                 ${subservice.price}
               </span>
@@ -42,7 +42,7 @@
               <ul>
                 {#each subservice.options as option}
                   <li>
-                    <span class="option-name">{option.name}</span> - +${option.price}
+                    <span class="option-name">{option.name}</span>: +${option.price}
                   </li>
                 {/each}
               </ul>

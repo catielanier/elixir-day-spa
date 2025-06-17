@@ -9,14 +9,14 @@
   <p>
     Born in Macedonia, Bilyana has lived and worked in Barrie for 18 years. She
     loves what she does so much she decided to fulfil her dream of opening a spa
-    where her client weren’t just clients--they were friends who left feeling
+    where her client weren't just clients--they were friends who left feeling
     pampered and uplifted.
   </p>
   <p>
     The range of services, depth of professional knowledge and meticulous
     attention to detail will leave you with only one problem: what treatment to
-    choose first! In 2011 Bilyana’s loyal clients collectively voted her
-    Barrie’s Best Esthetician. Call soon to book an appointment, you will not be
+    choose first! In 2011, Bilyana's loyal clients collectively voted her
+    Barrie's Best Esthetician. Call soon to book an appointment, you will not be
     disappointed!
   </p>
 </section>
