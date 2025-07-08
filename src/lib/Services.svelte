@@ -53,7 +53,7 @@
       {/if}
 
       {#if index < $pricing.length - 1}
-        <Separator />
+        <Separator isMainSectionDivider={false} />
       {/if}
     {/each}
   </section>

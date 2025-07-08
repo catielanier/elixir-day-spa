@@ -24,7 +24,7 @@
 <style>
   /* ─── Container & Typography ───────────────────────────────────────────── */
   #about {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 4rem 2rem;
   }

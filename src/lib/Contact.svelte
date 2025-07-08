@@ -27,10 +27,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
-<section id="about">
+<section id="contact">
   <h2>Contact Us</h2>
   <p>
-    Have a question about a treatment or ready to book your appointment? I’d
+    Have a question about a treatment or ready to book your appointment? I'd
     love to hear from you!
   </p>
   <p>
@@ -105,9 +105,9 @@
   }
 
   /* ─── section layout ──────────────────────────────────────────────────── */
-  #about {
+  #contact {
     padding: 4rem 2rem;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
   }
 

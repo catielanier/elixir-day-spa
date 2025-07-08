@@ -12,6 +12,7 @@
   import { writable } from "svelte/store";
   import MobileNav from "./lib/MobileNav.svelte";
   import { firebase } from "./utils/firebase";
+  import Gallery from "./lib/Gallery.svelte";
 
   const pricing = writable([]);
 
@@ -29,9 +30,11 @@
 <Header />
 <main>
   <About />
-  <Separator />
+  <Separator isMainSectionDivider={true} />
   <Services {pricing} />
-  <Separator />
+  <Separator isMainSectionDivider={true} />
+  <Gallery />
+  <Separator isMainSectionDivider={true} />
   <Contact />
 </main>
 <Footer />
