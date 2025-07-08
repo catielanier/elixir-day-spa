@@ -1,5 +1,14 @@
 <script>
   import axios from "axios";
+
+  // FontAwesome setup
+  import { library } from "@fortawesome/fontawesome-svg-core";
+  import { faFacebookF, faInstagram } from "@fortawesome/free-brands-svg-icons";
+  import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
+
+  // add the icons to the library
+  library.add(faFacebookF, faInstagram);
+
   let [contactName, email, phone, message] = Array(4).fill("");
   let success = false;
 
@@ -23,7 +32,7 @@
 </script>
 
 <svelte:head>
-  <!-- ensure media-queries actually hit at device width -->
+  <!-- meta for responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
@@ -43,6 +52,7 @@
     Prefer to email instead? Just fill out the contact form, and I'll get back
     to you personally as soon as I can.
   </p>
+
   <div class="form-wrapper">
     <form on:submit|preventDefault={sendMessage}>
       {#if success}
@@ -87,6 +97,27 @@
         <button type="submit"><span class="highlight">Send email</span></button>
       </div>
     </form>
+  </div>
+
+  <!-- social links -->
+  <div class="social-media">
+    <span>Follow us:</span>
+    <a
+      href="https://www.facebook.com/yourpage"
+      target="_blank"
+      rel="noopener"
+      aria-label="Facebook"
+    >
+      <FontAwesomeIcon icon={faFacebookF} size="2x" />
+    </a>
+    <a
+      href="https://www.instagram.com/youraccount"
+      target="_blank"
+      rel="noopener"
+      aria-label="Instagram"
+    >
+      <FontAwesomeIcon icon={faInstagram} size="2x" />
+    </a>
   </div>
 </section>
 
@@ -141,6 +172,7 @@
     position: relative;
     display: inline-block;
     color: #e00;
+    text-decoration: none;
   }
   a::before {
     content: "";
@@ -219,9 +251,28 @@
     z-index: -1;
   }
 
+  /* ─── social media icons ───────────────────────────────────────────────── */
+  .social-media {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: "Karla", sans-serif;
+  }
+  .social-media span {
+    font-size: 1.1rem;
+  }
+  .social-media a :global(svg) {
+    /* let size="2x" handle dimensions */
+    vertical-align: middle;
+  }
+  .social-media a:hover :global(svg) {
+    color: #ff0;
+  }
+
   /* ─── tablet breakpoint ───────────────────────────────────────────────── */
   @media (max-width: 768px) {
-    #about {
+    #contact {
       padding: 3rem 1.5rem;
     }
     h2 {
@@ -239,11 +290,14 @@
       font-size: 1rem;
       padding: 0.5rem 0.75rem;
     }
+    .social-media span {
+      font-size: 1rem;
+    }
   }
 
   /* ─── phone breakpoint ─────────────────────────────────────────────────── */
   @media (max-width: 480px) {
-    #about {
+    #contact {
       padding: 2rem 1rem;
     }
     h2 {
@@ -264,6 +318,12 @@
       display: block;
       width: 100%;
       text-align: center;
+    }
+    .social-media {
+      justify-content: center;
+    }
+    .social-media span {
+      display: none;
     }
   }
 </style>
