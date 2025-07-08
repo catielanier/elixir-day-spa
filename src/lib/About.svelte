@@ -1,13 +1,21 @@
 <section id="about">
   <h2>About Us</h2>
   <p>
-    With over 15 years of comprehensive experience in providing customer focused
+    Elixir Day Spa is an urban oasis that offers a blend of traditional treatments, 
+    revolutionary new products and services. At Elixir you will find the perfect 
+    marriage of hands-on healing techniques mixed with the most modern technology 
+    to provide the ultimate spa experience. Every treatment begins with a free 
+    consultation in a private and confidential atmosphere culminating in a sense 
+    of personal satisfaction and complete well being.
+  </p>
+  <p>
+    With over 20 years of comprehensive experience in providing customer focused
     service in the spa industry backed up by a further eight years
     pharmaceutical and nursing experience, Bilyana is more than qualified to
     meet all your beauty, health and nutrition needs.
   </p>
   <p>
-    Born in Macedonia, Bilyana has lived and worked in Barrie for 18 years. She
+    Born in Macedonia, Bilyana has lived and worked in Barrie for 22 years. She
     loves what she does so much she decided to fulfil her dream of opening a spa
     where her clients weren't just clients—they were friends who left feeling
     pampered and uplifted.
