@@ -103,7 +103,7 @@
   <div class="social-media">
     <span>Follow us:</span>
     <a
-      href="https://www.facebook.com/yourpage"
+      href="https://www.facebook.com/people/Elixir-Day-Spa/100063547662053/"
       target="_blank"
       rel="noopener"
       aria-label="Facebook"
@@ -111,7 +111,7 @@
       <FontAwesomeIcon icon={faFacebookF} size="2x" />
     </a>
     <a
-      href="https://www.instagram.com/youraccount"
+      href="https://www.instagram.com/elixir_day_spa_/"
       target="_blank"
       rel="noopener"
       aria-label="Instagram"
@@ -267,9 +267,8 @@
     vertical-align: middle;
   }
   .social-media a:hover :global(svg) {
-    color: #ff0;
+    color: #525252;
   }
-
   /* ─── tablet breakpoint ───────────────────────────────────────────────── */
   @media (max-width: 768px) {
     #contact {
