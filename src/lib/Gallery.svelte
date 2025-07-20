@@ -60,6 +60,7 @@
     margin: 0 auto;
     padding: 4rem 2rem;
   }
+
   h2 {
     font-size: 2rem;
     font-family: "Playfair Display", serif;
@@ -68,6 +69,7 @@
     display: inline-block;
     z-index: 1;
   }
+
   h2::before {
     content: "";
     position: absolute;
@@ -79,17 +81,56 @@
     transform: skew(-10deg);
     z-index: -1;
   }
+
+  /* full‑width wrapper with side padding */
   .carousel-wrapper {
-    max-width: 960px; /* or whatever your carousel width is */
-    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1rem;
     text-align: center;
   }
 
+  /* each slide/image */
   .carousel-wrapper img {
-    display: block; /* remove inline quirks */
-    width: 100%; /* fills the carousel width */
-    height: 720px; /* uniform height for every slide */
-    object-fit: contain; /* preserve the photo’s aspect ratio */
+    display: block;
+    width: 100%;
+    height: 720px; /* uniform desktop height */
+    object-fit: contain; /* preserves aspect ratio */
     object-position: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  /* -------------------------------------------------------------------
+   Responsive tweaks
+   ------------------------------------------------------------------- */
+  /* Tablets and small desktops */
+  @media (max-width: 768px) {
+    #gallery {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    .carousel-wrapper img {
+      height: 480px; /* shorter on tablets */
+    }
+  }
+
+  /* Mobile phones */
+  @media (max-width: 480px) {
+    #gallery {
+      padding: 2rem 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .carousel-wrapper img {
+      height: 240px; /* even shorter on phones */
+    }
   }
 </style>

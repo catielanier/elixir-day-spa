@@ -107,47 +107,103 @@
     z-index: -1;
   }
 
+  /* make the carousel wrapper full width and add side padding */
+  .carousel-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1rem;
+  }
+
+  /* ensure each slide fills its container */
   .carousel-wrapper :global(.testimonial-slide) {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 1.5rem;
     background: #fff;
     border-radius: 0.5rem;
-    max-width: 800px;
-    margin: 0 auto;
     text-align: left;
+    box-sizing: border-box;
   }
 
-  .carousel-wrapper :global(.testimonial-slide) {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
+  /* blockquote styling */
   .testimonial-slide blockquote {
     margin: 0;
     font-family: "Karla", sans-serif;
-
     padding: 1.5rem;
     border-left: 4px solid #ddd;
     background: #f9f9f9;
     quotes: "“" "”" "‘" "’";
   }
 
+  /* paragraph spacing */
   .testimonial-slide blockquote p {
-    display: block;
     margin: 0 0 1rem;
   }
 
+  /* footer attribution */
   .testimonial-slide blockquote footer {
     margin-top: 1rem;
     text-align: right;
     font-style: italic;
+    font-family: "Playfair Display", serif;
   }
 
+  /* link in footer */
   .testimonial-slide blockquote footer a {
     text-decoration: none;
     color: inherit;
   }
 
-  blockquote footer {
-    font-family: "Playfair Display", serif;
+  /* -------------------------------------------------------------------
+   Responsive tweaks
+   ------------------------------------------------------------------- */
+  /* Tablets and small desktops */
+  @media (max-width: 768px) {
+    #testimonials {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    .testimonial-slide blockquote {
+      padding: 1rem;
+      border-left-width: 3px;
+    }
+
+    .testimonial-slide blockquote p {
+      font-size: 0.95rem;
+    }
+
+    .testimonial-slide blockquote footer {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Mobile phones */
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .testimonial-slide {
+      padding: 1rem;
+    }
+
+    .testimonial-slide blockquote {
+      padding: 0.75rem;
+      border-left-width: 2px;
+    }
+
+    .testimonial-slide blockquote p {
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .testimonial-slide blockquote footer {
+      font-size: 0.85rem;
+    }
   }
 </style>
