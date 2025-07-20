@@ -31,6 +31,7 @@
           <li><a href="#nails" on:click={navigate}>Nails</a></li>
           <li><a href="#skincare" on:click={navigate}>Skincare</a></li>
           <li><a href="#body" on:click={navigate}>Body</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact" on:click={navigate}>Contact</a></li>
         </ul>
