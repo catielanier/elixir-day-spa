@@ -91,7 +91,7 @@
           name="message"
           bind:value={message}
           required
-        />
+        ></textarea>
       </div>
       <div class="btn-wrap">
         <button type="submit"><span class="highlight">Send email</span></button>
