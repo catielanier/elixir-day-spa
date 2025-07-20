@@ -20,9 +20,8 @@
 
 <style>
   footer {
-    font-family: "Rouge Script", cursive;
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-family: "Playfair Display", serif;
+    font-size: 0.9rem;
     background: #525252;
     color: #ff0;
   }
