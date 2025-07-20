@@ -53,7 +53,7 @@
     border: 1px solid #ffff00;
     padding: 10px 20px;
     color: #000;
-    width: 540px;
+    width: 680px;
     font-family: "Playfair Display", serif;
     font-size: 1.2rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
