@@ -1,4 +1,8 @@
 <script>
+  import { onMount } from "svelte";
+  import { writable } from "svelte/store";
+  import { get, getDatabase, ref } from "firebase/database";
+
   import About from "./lib/About.svelte";
   import Contact from "./lib/Contact.svelte";
   import Footer from "./lib/Footer.svelte";
@@ -6,13 +10,10 @@
   import Navbar from "./lib/Navbar.svelte";
   import Separator from "./lib/Separator.svelte";
   import Services from "./lib/Services.svelte";
-
-  import { get, getDatabase, ref } from "firebase/database";
-  import { onMount } from "svelte";
-  import { writable } from "svelte/store";
+  import Testimonials from "./lib/Testimonials.svelte";
+  import Gallery from "./lib/Gallery.svelte";
   import MobileNav from "./lib/MobileNav.svelte";
   import { firebase } from "./utils/firebase";
-  import Gallery from "./lib/Gallery.svelte";
 
   const pricing = writable([]);
 
@@ -32,6 +33,8 @@
   <About />
   <Separator isMainSectionDivider={true} />
   <Services {pricing} />
+  <Separator isMainSectionDivider={true} />
+  <Testimonials />
   <Separator isMainSectionDivider={true} />
   <Gallery />
   <Separator isMainSectionDivider={true} />
