@@ -155,6 +155,24 @@
     color: inherit;
   }
 
+  a {
+    position: relative;
+    display: inline-block;
+    color: #e00;
+    text-decoration: none;
+  }
+  a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0.15em;
+    width: 100%;
+    height: 0.5em;
+    background: #ff0;
+    transform: skew(-10deg);
+    z-index: -1;
+  }
+
   /* -------------------------------------------------------------------
    Responsive tweaks
    ------------------------------------------------------------------- */
