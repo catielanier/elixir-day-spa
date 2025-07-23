@@ -149,19 +149,15 @@
     font-family: "Playfair Display", serif;
   }
 
-  /* link in footer */
   .testimonial-slide blockquote footer a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  a {
-    position: relative;
-    display: inline-block;
+    position: relative; /* establish local stacking context */
+    z-index: 0; /* any non‑auto z‑index works; 0 is enough */
     color: #e00;
     text-decoration: none;
+    display: inline-block;
   }
-  a::before {
+
+  .testimonial-slide blockquote footer a::before {
     content: "";
     position: absolute;
     left: 0;
@@ -170,7 +166,8 @@
     height: 0.5em;
     background: #ff0;
     transform: skew(-10deg);
-    z-index: -1;
+    z-index: -1; /* sits _behind_ the link text */
+    pointer-events: none; /* lets clicks pass through to the <a> */
   }
 
   /* -------------------------------------------------------------------
