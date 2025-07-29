@@ -43,6 +43,30 @@
         "We love Bilyana!!!!",
       ],
     },
+    {
+      url: "https://maps.app.goo.gl/Y6uKGQzaKK3m3eh66",
+      sourceName: "Camille Romero",
+      paragraphs: [
+        "Elixir Day Spa offers a range of professional treatments and caters to diverse needs. I visit primarily for the facials which always leave my skin looking and feeling refreshed and radiant. Hands down best place ever.",
+        "Bilyana utilizes the latest techniques and high-quality products to deliver exceptional results. Whether you are looking for a deep cleansing facial, anti-aging treatment, or a relaxing and pampering experience, Bilyana has you covered! I highly recommend!",
+      ],
+    },
+    {
+      url: "https://maps.app.goo.gl/m2fMYgEfVXPj4RkW9",
+      sourceName: "Jacob Proctor",
+      paragraphs: [
+        "I recently was fortunate enough to experience my first facial with Bilyana. I am a 24 year-old male who has been dealing with ongoing acne since I was probably around 19 years old and in university. I am pretty self conscious about my skin and I really wanted to find a solution to my breakouts.",
+        "I've been on a journey ever since to maintain my skin care, eating, and have seen numerous esthetician’s, but I can say with sincerity that Bilyana is among the best. Not second best, but THE best. You can tell she cares by the time she takes to discuss your skins history,  describing how the products she uses function, and by her knowledge.",
+        "It was evident to see Bilyana's passion towards her work and commitment towards her clients. She is great at recommending products but did not make it feel like I have felt, where I need to make a purchase. All in all it was a truly great experience and I look forward to seeing Bilyana again soon.",
+      ],
+    },
+    {
+      url: "https://maps.app.goo.gl/WdszTF13XHd3Geyu6",
+      sourceName: "Candace Campbell",
+      paragraphs: [
+        "Bilyana is extremely knowledgeable and professional and has a beautiful, clean space. Highly recommend for facials, waxing and spray tans.",
+      ],
+    },
   ];
 
   let carousel;
@@ -76,6 +100,15 @@
         </div>
       {/each}
     </Carousel>
+  </div>
+  <div class="view-more">
+    <a
+      href="https://maps.app.goo.gl/26iH3T4HWR4YhrSd7"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View all my Google Maps reviews
+    </a>
   </div>
 </section>
 
@@ -149,7 +182,8 @@
     font-family: "Playfair Display", serif;
   }
 
-  .testimonial-slide blockquote footer a {
+  .testimonial-slide blockquote footer a,
+  .view-more a {
     position: relative; /* establish local stacking context */
     z-index: 0; /* any non‑auto z‑index works; 0 is enough */
     color: #e00;
@@ -157,7 +191,14 @@
     display: inline-block;
   }
 
-  .testimonial-slide blockquote footer a::before {
+  .view-more {
+    margin-top: 2rem;
+    text-align: right;
+    font-family: "Playfair Display", serif;
+  }
+
+  .testimonial-slide blockquote footer a::before,
+  .view-more a::before {
     content: "";
     position: absolute;
     left: 0;
