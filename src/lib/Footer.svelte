@@ -1,4 +1,6 @@
 <script>
+  import { links } from "svelte-routing";
+
   const startYear = 2025;
   const currentYear = new Date().getFullYear();
   const copyright =
@@ -10,6 +12,9 @@
 <footer>
   <div class="container">
     <div>{copyright} Elixir Day Spa. All rights reserved.</div>
+    <div use:links>
+      <a href="/admin/login">π</a>
+    </div>
     <div>
       Lovingly created by <a href="https://catielanier.ca" target="_blank">
         Catie Lanier
@@ -30,7 +35,7 @@
     max-width: 1280px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr 2fr;
     gap: 1rem;
     padding: 1rem 2rem;
   }
