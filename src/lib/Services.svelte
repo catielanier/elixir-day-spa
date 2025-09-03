@@ -212,7 +212,7 @@
     }
     p,
     ul {
-      font-size: . ninerem;
+      font-size: 0.9rem;
     }
     ul {
       margin-bottom: 0.8rem;
