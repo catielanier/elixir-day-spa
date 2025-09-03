@@ -130,13 +130,18 @@
               <p>{paragraph}</p>
             {/each}
             <footer>
-              — <a
-                href={testimonial.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              —
+              {#if testimonial.url}
+                <a
+                  href={testimonial.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {testimonial.sourceName}
+                </a>
+              {:else}
                 {testimonial.sourceName}
-              </a>
+              {/if}
             </footer>
           </blockquote>
         </div>
