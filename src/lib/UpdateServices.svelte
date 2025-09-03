@@ -40,6 +40,10 @@
         <span class="hint">All prices are integers.</span>
       </div>
 
+      {#if success}
+        <p>Prices updated successfully.</p>
+      {/if}
+
       <h2><span class="highlight">Edit Services & Prices</span></h2>
 
       {#each $pricing as service, index}
