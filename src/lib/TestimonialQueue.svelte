@@ -9,6 +9,8 @@
     ref,
     remove,
   } from "firebase/database";
+  import { getToken } from "../utils/tokenService";
+  import { navigate } from "svelte-routing";
 
   const database = getDatabase(firebase);
   const referenceQueue = ref(database, "/queue");
@@ -17,6 +19,9 @@
   let queue = {};
 
   onMount(() => {
+    if (!getToken()) {
+      navigate("/");
+    }
     get(referenceQueue).then((snapshot) => {
       queue = snapshot.val() ?? {};
     });

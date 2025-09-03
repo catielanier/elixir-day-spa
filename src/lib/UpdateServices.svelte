@@ -4,12 +4,17 @@
   import { firebase } from "../utils/firebase";
   import { get, getDatabase, ref, update } from "firebase/database";
   import { onMount } from "svelte";
+  import { getToken } from "../utils/tokenService";
+  import { navigate } from "svelte-routing";
   let pricing = writable([]);
   const database = getDatabase(firebase);
   const reference = ref(database, "/pricing");
   let success = false;
 
   onMount(() => {
+    if (!getToken()) {
+      navigate("/");
+    }
     get(reference).then((snapshot) => {
       pricing.set(snapshot.val());
     });

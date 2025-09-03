@@ -3,7 +3,7 @@
   import { navigate } from "svelte-routing";
   import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
   import { firebase } from "../utils/firebase";
-  import { setToken } from "../utils/tokenService";
+  import { getToken, setToken } from "../utils/tokenService";
   export let setLogin;
 
   let email = "";
@@ -25,6 +25,12 @@
         error = "invalid username or password";
       });
   };
+
+  onMount(() => {
+    if (getToken()) {
+      navigate("/admin/dashboard");
+    }
+  });
 </script>
 
 <section id="login">
