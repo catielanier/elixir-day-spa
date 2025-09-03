@@ -4,7 +4,7 @@
   import Login from "./lib/Login.svelte";
   import Dashboard from "./lib/Dashboard.svelte";
   import TestimonialQueue from "./lib/TestimonialQueue.svelte";
-  import AddItems from "./lib/AddItems.svelte";
+  import UpdateServices from "./lib/UpdateServices.svelte";
   let loggedIn = false;
 
   const setLogin = () => {
@@ -18,6 +18,6 @@
   {#if loggedIn}
     <Route path="/admin/dashboard"><Dashboard /></Route>
     <Route path="/admin/testimonials"><TestimonialQueue /></Route>
-    <Route path="/admin/prices"><AddItems /></Route>
+    <Route path="/admin/prices"><UpdateServices /></Route>
   {/if}
 </Router>
