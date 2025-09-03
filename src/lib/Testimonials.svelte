@@ -155,7 +155,11 @@
   </div>
 
   <!-- Modal (add/remove .open class in your logic to show/hide) -->
-  <div class="modal" id="testimonial-modal" aria-hidden="true">
+  <div
+    class="modal {isModalOpen && 'open'}"
+    id="testimonial-modal"
+    aria-hidden="true"
+  >
     <div class="modal__overlay" data-close></div>
 
     <div
