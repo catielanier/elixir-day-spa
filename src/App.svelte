@@ -5,12 +5,19 @@
   import Dashboard from "./lib/Dashboard.svelte";
   import TestimonialQueue from "./lib/TestimonialQueue.svelte";
   import AddItems from "./lib/AddItems.svelte";
+  let loggedIn = false;
+
+  const setLogin = () => {
+    loggedIn = !loggedIn;
+  };
 </script>
 
 <Router>
   <Route path="/"><Main /></Route>
-  <Route path="/admin/login"><Login /></Route>
-  <Route path="/admin/dashboard"><Dashboard /></Route>
-  <Route path="/admin/testimonials"><TestimonialQueue /></Route>
-  <Route path="/admin/prices"><AddItems /></Route>
+  <Route path="/admin/login"><Login {setLogin} /></Route>
+  {#if loggedIn}
+    <Route path="/admin/dashboard"><Dashboard /></Route>
+    <Route path="/admin/testimonials"><TestimonialQueue /></Route>
+    <Route path="/admin/prices"><AddItems /></Route>
+  {/if}
 </Router>
