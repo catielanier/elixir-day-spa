@@ -33,6 +33,9 @@
 
   <div class="form-wrapper">
     <form>
+      {#if error.length}
+        <p>[error]</p>
+      {/if}
       <div>
         <input
           type="text"
