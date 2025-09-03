@@ -14,35 +14,76 @@
   const referenceQueue = ref(database, "/queue");
   const referenceTestimonials = ref(database, "/testimonials");
 
-  let queue;
+  let queue = {};
+
   onMount(() => {
     get(referenceQueue).then((snapshot) => {
-      queue = snapshot.val();
+      queue = snapshot.val() ?? {};
     });
   });
 
-  const approveTestimonial = (ref) => {
-    const testimonial = queue[ref];
-    push(referenceTestimonials, testimonial)
+  // Normalize any queued item to { sourceName, paragraphs: string[] }
+  const toApprovedShape = (q) => {
+    const sourceName = q?.sourceName ?? "";
+
+    // prefer paragraphs if already present
+    if (Array.isArray(q?.paragraphs) && q.paragraphs.length) {
+      return { sourceName, paragraphs: q.paragraphs };
+    }
+
+    // fall back to a single text field (could be 'text' or 'testimonial')
+    const raw =
+      typeof q?.text === "string"
+        ? q.text
+        : typeof q?.testimonial === "string"
+          ? q.testimonial
+          : "";
+
+    const paragraphs = raw
+      .replace(/\r\n/g, "\n") // normalize CRLF → LF
+      .trim()
+      .split(/\n{2,}/) // split on blank lines into paragraphs
+      .filter((p) => p.trim().length > 0);
+
+    // if nothing after split, at least pass one paragraph (empty string stripped above)
+    return {
+      sourceName,
+      paragraphs: paragraphs.length ? paragraphs : [raw.trim()],
+    };
+  };
+
+  const approveTestimonial = (refKey) => {
+    const queued = queue[refKey];
+    if (!queued) return;
+
+    const approvedDoc = toApprovedShape(queued);
+
+    push(referenceTestimonials, approvedDoc)
       .then(() => {
-        const queueItem = child(referenceQueue, ref);
-        remove(queueItem);
+        const queueItem = child(referenceQueue, refKey);
+        return remove(queueItem);
       })
       .finally(() => {
-        delete queue[ref];
+        // optimistic UI update
+        delete queue[refKey];
+        // trigger reactivity
+        queue = { ...queue };
       });
   };
 
-  const rejectTestimonial = (ref) => {
-    const childItem = child(referenceQueue, ref);
-    remove(childItem);
+  const rejectTestimonial = (refKey) => {
+    const childItem = child(referenceQueue, refKey);
+    remove(childItem).finally(() => {
+      delete queue[refKey];
+      queue = { ...queue };
+    });
   };
 </script>
 
 <section id="testimonial-admin" class="testimonial-admin">
   <h2>Approve/Reject Testimonials</h2>
 
-  {#if queue}
+  {#if queue && Object.keys(queue).length > 0}
     <div class="queue-grid">
       {#each Object.entries(queue) as [ref, item]}
         <article class="testimonial-card">
@@ -53,25 +94,30 @@
 
           <div class="card-body">
             <span class="label">Testimonial</span>
-            <p class="testimonial-text">{item.text}</p>
+
+            {#if Array.isArray(item.paragraphs) && item.paragraphs.length}
+              <div class="paragraphs">
+                {#each item.paragraphs as p}
+                  <p class="paragraph">{p}</p>
+                {/each}
+              </div>
+            {:else}
+              <!-- fall back to a single string; preserve line breaks visually -->
+              <p class="testimonial-text">
+                {item.text ?? item.testimonial ?? ""}
+              </p>
+            {/if}
           </div>
 
           <div class="actions btn-wrap">
             <button
               class="btn approve"
-              on:click={() => {
-                approveTestimonial(ref);
-              }}
+              on:click={() => approveTestimonial(ref)}
             >
               <span class="highlight">Approve</span>
             </button>
 
-            <button
-              class="btn reject"
-              on:click={() => {
-                rejectTestimonial(ref);
-              }}
-            >
+            <button class="btn reject" on:click={() => rejectTestimonial(ref)}>
               <span class="highlight">Reject</span>
             </button>
           </div>
@@ -172,9 +218,21 @@
     line-height: 1.5;
   }
 
+  /* preserves single line breaks when showing a raw string */
   .testimonial-text {
     white-space: pre-wrap;
     word-wrap: break-word;
+  }
+
+  /* nice spacing for array paragraphs */
+  .paragraphs {
+    display: grid;
+    gap: 0.75rem;
+  }
+  .paragraphs .paragraph {
+    margin: 0;
+    font-family: "Karla", sans-serif;
+    line-height: 1.5;
   }
 
   /* ─── actions / buttons ───────────────────────────────────────────────── */
@@ -211,7 +269,6 @@
     transition: background 0.2s ease;
   }
 
-  /* subtle color cues while preserving the same highlight style */
   .btn.approve {
     color: #1a7f37;
   } /* deep green */

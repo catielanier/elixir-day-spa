@@ -85,7 +85,10 @@
   const submitTestimonial = () => {
     const newTestimonial = {
       sourceName,
-      testimonial,
+      paragraphs: testimonial
+        .replace(/\r\n/g, "\n") // normalize CRLF → LF
+        .trim()
+        .split(/\n{2,}/),
     };
     const referenceQueue = ref(database, "/queue");
     push(referenceQueue, newTestimonial)
