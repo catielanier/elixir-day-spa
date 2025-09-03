@@ -131,7 +131,7 @@
             {/each}
             <footer>
               —
-              {#if testimonial.url}
+              {#if testimonial.url && testimonial.url.trim() !== ""}
                 <a
                   href={testimonial.url}
                   target="_blank"
