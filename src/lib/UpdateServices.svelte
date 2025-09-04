@@ -37,7 +37,6 @@
         <button class="btn submit" type="submit">
           <span class="highlight">Submit Changes</span>
         </button>
-        <span class="hint">All prices are integers.</span>
       </div>
 
       {#if success}
